@@ -16,6 +16,12 @@ class AdminPostsController extends Controller
         return view('admin.posts.index',$data);
     }
 
+    public function store(Request $request)
+    {
+      Post::create($request->all());
+      return redirect()->route('admin.posts.index');
+    }
+
     public function create()
     {
         return view('admin.posts.create');
